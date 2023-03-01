@@ -1,0 +1,113 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin: 5px;
+    text-align: center;
+}
+
+div.main {
+    background-color: rgba(249, 249, 249, 0.3);
+    padding: 0;
+    width: 1024px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.padded {
+    margin: 5px 5px 5px 5px;
+}
+
+.even_child {
+    display: flex;
+    flex-grow: 1; /* default 0 */
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.bordered {
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.indcont {
+    justify-content: space-between;
+}
+
+.justend {
+    justify-content: flex-end;
+}
+
+.justcenter {
+    justify-content: center;
+}
+
+.selfend {
+    display: flex;
+    align-self: flex-end;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+    display: inline;
+    color: #274d3b;
+}
+
+h1, h2, h3 {
+    color: #676666;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+    background-color: rgba(39, 101, 184, 0.3);
+    margin: 5px 5px 5px 5px;
+    border-radius: 5px;
+}
+
+h3 {
+    font-size: 16px;
+    /*margin: 0px 0px 0px 0px;*/
+}
+
+h2 {
+    font-size: 18px;
+}
+
+input[type="number"] {
+    margin: 20px;
+}
+
+input[type="button"] {
+    margin: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+img.command {
+    width: 50px;
+    height: 50px;
+}

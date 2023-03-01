@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>PiCardo Control</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script>window.$ = window.jQuery = require('jquery');</script>
+        <script src="index.js"></script>
+    </head>
+
+    <body>
+        <div id="main_section" class="main container bordered">
+            <h1>PiCardo control panel.</h1>
+
+            <div class="flexrow container padded">
+                <div class="even_child flexcolumn padded bordered">
+                    <h2>Controls</h2>
+                    <div class="">
+                        <label>Distance:</label> <input id="distance" type="number" min="5", max="300" value="30">
+                        <label>Angle:</label> <input id="angle" type="number" min="10", max="360" value="90">
+                        <h3>Directions</h3>
+                        <br>
+                        <img src="icons/up.png" class="command" id="forward" alt="Forward">
+                        <div>
+                            <img src="icons/left.png" class="command" id="left">
+                            &nbsp; <img src="icons/stop.png" class="command" id="stop"> &nbsp;
+                            <img src="icons/right.png" class="command" id="right">
+                        </div>
+                        <img src="icons/down.png" class="command" id="backward">
+
+                    </div>
+
+                </div>
+                <div class="even_child flexcolumn padded bordered">
+                    <h2>Statistics</h2>
+                    <br>
+                    <form class="">
+                    <label>Car Status:</label> <input id="car_status" size="10" value="" disabled><br><br>
+                    <label>Distance Traveled:</label> <input id="distance_traveled" size="10" value="" disabled><br><br>
+                    <label>Current Speed:</label> <input id="current_speed" size="10" value="" disabled><br><br>
+                    <label>CPU use:</label> <input id="cpu_use" size="10" value="" disabled><br><br>
+                    <label>Free memory:</label> <input id="free_memory" size="10" value="" disabled><br><br>
+                    <label>Total memory:</label> <input id="total_memory" size="10" value="" disabled>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <script>
+            (function(){
+                main.init();
+            })();
+        </script>
+    </body>
+
+</html>
