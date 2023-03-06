@@ -26,7 +26,7 @@ class RequestControllerMock():
             trace("Getting metrics.")
             response = self.__mock_metrics()
         else:
-            print("Command not supported")
+            info("Command not supported")
 
         return response
 

@@ -2,10 +2,14 @@ from utils import *
 from car_controller import CarController
 
 
+'''
+Delegates the commands executions to the @CarController
+'''
 class RequestController:
 
 	def __init__(self):
 		self.car_ctl = CarController()
+		# Start the Car sub-process
 		self.car_ctl.start()
 
 	def handle(self, message):
@@ -33,7 +37,7 @@ class RequestController:
 			trace("Getting metrics.")
 			response = self.car_ctl.get_metrics()
 		else:
-			print("Command not supported")
+			info("Command not supported")
 
 		return response
 

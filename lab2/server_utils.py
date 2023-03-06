@@ -24,11 +24,13 @@ class MessageHelper:
         total_sent = 0
         msg_to_send = msg.encode('utf-8')
 
+        # if header is not used, it tries to send the message in one go.
         if not use_header:
             debug(f"Sending message {msg_to_send}")
             self.sock.send(msg_to_send)
             return
 
+        # Add a header to the message that indicates the size of the message.
         message_header = f"{len(msg):<{self.header_len}}".encode('utf-8')
         msg_to_send = message_header + msg.encode('utf-8')
         debug(f"Sending message {msg_to_send}")
@@ -43,8 +45,12 @@ class MessageHelper:
         bytes_recd = 0
         msg_len = 1024
 
+        # If header is not use, message is read in one go.
+        # Not the safest way to receive a whole message.
         if not use_header:
             json_str = self.sock.recv(msg_len).decode('utf-8')
+        # Client and server can agree on sending a header with the size of the message
+        # This is the safe way to make sure messages are read completely
         else:
             header = self.sock.recv(self.header_len)
             msg_len = int(header.decode('utf-8').strip())
@@ -62,6 +68,7 @@ class MessageHelper:
         return json.loads(json_str)
 
     def send_obj(self, obj, use_header=True):
+        # Convert dictionary object to a JSON string, then send the message.
         json_msg = json.dumps(obj)
         self.__send(json_msg, use_header)
 
@@ -70,6 +77,7 @@ class MessageHelper:
             "cmd": cmd,
             "params": params
         }
+        # Convert dictionary to JSON string to be sent
         json_msg = json.dumps(req)
         self.__send(json_msg, use_header)
 

@@ -1,4 +1,5 @@
 import picar_4wd as fc
+from picar_4wd.utils import power_read
 import time
 from multiprocessing import Process, Queue
 import tempfile
@@ -11,16 +12,17 @@ Controls the main loop that decides what the car is doing.
 class CarController():
 
     def __init__(self):
+        # Queue to send commands to the CarPro process
         self.cmd_q = Queue()
+        # Queue where the CarPro process
         self.stats_q = Queue()
+        # Process works much better than Threads in this case.
         self.car_t = Process(target=CarController.car_loop, name="CarPro",
                              args=(self.cmd_q, self.stats_q,), daemon=True)
         self.distance_traveled = 0
         self.total_distance_traveled = 0
         self.listening = False
         self.car_status = 'still'
-        self.obj_detected = False
-        self.touch_file = '{}/detected.touch'.format(tempfile.gettempdir())
         self.actions = {
             'forward': fc.forward,
             'backward': fc.backward,
@@ -39,6 +41,10 @@ class CarController():
         # Aprox 360 turn
         self.TOTAL_TURN_TIME = 5.0
 
+    '''
+    Method with the main loop to execute commands and get information from the Car.
+    TODO move this method out of this class, it does not need to be here.
+    '''
     @staticmethod
     def car_loop(queue_in, queue_out):
         move_time = 0.1
@@ -47,8 +53,6 @@ class CarController():
         while listening:
             if not queue_in.empty():
                 task = queue_in.get(False)
-
-            #debug(self.car_status)
 
             if task:
                 # Moving should not block the loop
@@ -106,6 +110,7 @@ class CarController():
             self.metrics['current_speed'] = e.get('current_speed', 0)
 
         self.metrics.update(get_sys_metrics())
+        self.metrics['battery_voltage'] = power_read()
 
         return self.metrics
 
@@ -118,6 +123,7 @@ class CarController():
 
         self.distance_traveled = 0
 
+        # Put a command/task in the process queue.
         self.cmd_q.put({
             'car_status': 'moving',
             'distance_to_travel': move_params['distance'],
@@ -134,6 +140,7 @@ class CarController():
         turn_time = self.TOTAL_TURN_TIME / (360 / turn_params['angle'])
         turning_time = turn_time + turn_params['adjust_time']
 
+        # Put a command/task in the process queue.
         self.cmd_q.put({
             'car_status': 'turning',
             'turning_time': turning_time,
@@ -142,6 +149,7 @@ class CarController():
         })
 
     def stop(self):
+        # Stop command/task to the queue
         self.cmd_q.put({
             'car_status': 'stopped',
         })
@@ -155,6 +163,4 @@ class CarController():
         self.cmd_q.put({
             'car_status': 'not_listening',
         })
-        #self.od.stop()
-        #self.car_t.join()
         debug('Car Controller loop finished.')

@@ -1,9 +1,8 @@
 import socket
 from utils import debug,info
-import selectors
 from server_utils import MessageHelper
-#from request_controller import RequestController
-from request_controller_mock import RequestControllerMock
+from request_controller import RequestController
+#from request_controller_mock import RequestControllerMock
 
 
 class SocketServer:
@@ -22,20 +21,23 @@ class SocketServer:
 
         info(f"Listening on {(host, port)}")
 
-        #self.rc = RequestController()
-        self.rc = RequestControllerMock()
+        self.rc = RequestController()
+        #self.rc = RequestControllerMock()
 
     def start(self):
         client = None
         try:
+            # Main socket server loop
             while self.listening:
                 debug("Waiting for client")
                 client, clientInfo = self.lsock.accept()
                 with client:
                     debug(f"Connection from: {clientInfo}")
-                    # receive 1024 Bytes of message in binary format
+                    # Message Helper sends and receives messages in json format
                     mh = MessageHelper(client)
+                    # data is a dictionary object with command details for the PiCar.
                     data = mh.receive(use_header=False)
+                    # the command object
                     response = self.rc.handle(data)
                     if response:
                         debug(f"Sending response: {response}")
@@ -56,6 +58,6 @@ class SocketServer:
 
 
 if __name__ == '__main__':
-    ss = SocketServer(host="localhost")
-    #ss = SocketServer()
+    #ss = SocketServer(host="localhost")
+    ss = SocketServer()
     ss.start()
