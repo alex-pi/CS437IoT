@@ -1,0 +1,121 @@
+=============== Zebra:4ab7ca LOG ===============
+
+-- Timestamp: 67.62
+
+"location": [308.6581,240.4431]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 68.62
+
+"location": [307.7624,239.9974]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 69.62
+
+"location": [306.8667,239.5517]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 70.62
+
+"location": [305.9709,239.106]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 71.62
+
+"location": [305.0753,238.6604]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 72.62
+
+"location": [304.1795,238.2147]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 73.62
+
+"location": [303.2838,237.769]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 74.62
+
+"location": [302.3881,237.3234]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 75.62
+
+"location": [301.4922,236.8776]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00642
+
+-- Timestamp: 76.62
+
+"location": [300.5966,236.432]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00639
+
+-- Timestamp: 77.62
+
+"location": [299.7009,235.9864]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00636
+
+-- Timestamp: 78.62
+
+"location": [298.8052,235.5407]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00633
+
+-- Timestamp: 79.62
+
+"location": [297.9095,235.095]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00631
+"air_quality": 29.00063
+
+-- Timestamp: 80.62
+
+"location": [297.0138,234.6494]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00628
+"air_quality": 29.00063
+
+=============== Zebra:1dc647 LOG ===============
+
+-- Timestamp: 95.63
+
+"location": [225.9344,91.35348]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 96.63
+
+"location": [226.1827,90.38428]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 97.63
+
+"location": [226.431,89.41514]
+"oxygen_saturation": 0.98, "heart_rate": 60
+
+-- Timestamp: 98.63
+
+"location": [226.6794,88.44595]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00581
+
+-- Timestamp: 99.63
+
+"location": [226.9277,87.47678]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00579
+
+-- Timestamp: 100.63
+
+"location": [227.176,86.50764]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00577
+
+-- Timestamp: 101.63
+
+"location": [227.4243,85.53847]
+"oxygen_saturation": 0.98, "heart_rate": 60
+"temperature": 80.00574
+"air_quality": 29.00057
