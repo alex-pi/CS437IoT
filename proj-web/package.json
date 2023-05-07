@@ -1,0 +1,18 @@
+{
+  "name": "proj-web",
+  "version": "1.0.0",
+  "description": "IoT CS437 Project",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ap41",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^24.1.2"
+  },
+  "dependencies": {
+    "jquery": "^3.6.4"
+  }
+}

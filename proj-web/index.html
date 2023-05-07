@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>WaterMe App</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script>window.$ = window.jQuery = require('jquery');</script>
+        <script src="index.js"></script>
+    </head>
+
+    <body>
+        <div id="main_section" class="main container bordered">
+            <h1>WaterMe</h1>
+            <div class="form-group">
+                <label for="server" class="label">Server:</label>
+                <input id="server" type="text" size="20" value="palindromous.ddns.net">
+            </div>
+            <div class="flexrow container padded">
+                <div class=" flexcolumn padded bordered">
+                    <h2>Blanquita</h2>
+                    <img src="images/blanquita.png" class="button" id="Blanquita" alt="Blanquita">
+                    <div class="form-group">
+                        <label for="w_Blanquita" class="label">Milliliters:</label>
+                        <input id="w_Blanquita" type="number" min="30", max="360" value="30">
+                    </div>
+                </div>
+                <div class=" flexcolumn padded bordered">
+                    <h2>Ronaldo</h2>
+                    <img src="images/ronaldo.png" class="button" id="Ronaldo" alt="Ronaldo">
+                    <div class="form-group">
+                        <label for="w_Ronaldo" class="label">Milliliters:</label>
+                        <input id="w_Ronaldo" type="number" min="30", max="360" value="30">
+                    </div>
+                </div>
+                <div class=" flexcolumn padded bordered">
+                    <h2>Dolly</h2>
+                    <img src="images/dolly.jpg" class="button" id="Dolly" alt="Dolly">
+                    <div class="form-group">
+                        <label for="w_Dolly" class="label">Milliliters:</label>
+                        <input id="w_Dolly" type="number" min="30", max="360" value="30">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            (function(){
+                main.init();
+            })();
+        </script>
+    </body>
+
+</html>
